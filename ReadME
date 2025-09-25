@@ -1,0 +1,36 @@
+Reentry Portal – Demo Login Instructions
+
+Overview
+
+This is a demo login page for testing purposes. Accounts and login status are stored locally in your browser. No server or real authentication is required.
+
+How to Use
+1. Create an Account
+
+Click the “Create Account” button.
+
+Enter a new username when prompted.
+
+Enter a password when prompted.
+
+Your account is saved locally and can now be used to log in.
+
+
+⚠️ If an account does not exist on your browser, you will need to create one.
+
+
+2. Log In
+
+Enter your username and password in the input fields.
+
+Click “Sign In”.
+
+If the credentials match a local account, you’ll be redirected to the demo dashboard (Reentry/index.html).
+
+If credentials are invalid, an alert will notify you.
+
+Notes
+
+Works in modern browsers (Chrome, Edge, Firefox, Safari).
+
+Do not use real passwords—this demo stores credentials in plain localStorage.

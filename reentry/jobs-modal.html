@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jobs Modal</title>
+  <link rel="stylesheet" href="../css/style2.css" />
+  <link rel="stylesheet" href="../css/clock.css" /> <!-- optional if you want clock -->
+</head>
+
+<body class="jobs-modal" style="background-image: url('../images/AbstractJobs.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: fixed;">
+  <!-- Modal Panel Buttons Section -->
+  <section class="panel-job-buttons" aria-label="Job Search Sites">
+    <h2>Quick Job Links</h2>
+    <div class="panel-buttons-container"></div>
+  </section>
+
+  <script src="../js/resources.js"></script>
+  <script>
+    // Generate only panel buttons for modal
+    function generatePanelButtons() {
+      const container = document.querySelector(".panel-buttons-container");
+      if (!container || !window.portalResources || !portalResources.jobs) return;
+
+      container.innerHTML = ""; // clear any existing buttons
+
+      portalResources.jobs.forEach(item => {
+        const a = document.createElement("a");
+        a.href = item.url;
+        a.textContent = item.name;
+        a.target = "_blank";
+        a.classList.add("panel-btn"); // separate from .btn
+
+        // Track clicks locally
+        a.addEventListener("click", () => {
+          const stored = JSON.parse(localStorage.getItem("clickedResources")) || {};
+          if (!stored.jobs) stored.jobs = [];
+          if (!stored.jobs.includes(item.name)) stored.jobs.push(item.name);
+          localStorage.setItem("clickedResources", JSON.stringify(stored));
+        });
+
+        container.appendChild(a);
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", generatePanelButtons);
+  </script>
+</body>
+</html>

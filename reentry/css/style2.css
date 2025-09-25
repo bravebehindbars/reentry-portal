@@ -1,0 +1,336 @@
+/* Styles for Reentry Portal Pages*/
+
+/*Reset & Base Styles  */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Set full height and prevent horizontal scroll */
+html, body {
+  height: 100%;
+  overflow-x: hidden;
+}
+
+/* Base body styling */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  border: 1px solid orangered;
+  border-radius: 5px;
+  color: #f2f2f2;
+  line-height: 1.4;
+}
+
+/* Background images per page */
+body.main { background-image: url('../images/Home.jpg'); }
+body.jobs { background-image: url('../images/AbstractJobs.jpg'); }
+body.housing { background-image: url('../images/AbstractHousing.jpg'); }
+body.resources { background-image: url('../images/AbstractResources.jpg'); }
+
+/* Main Section */
+/* Layout and spacing for main content */
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 8px;
+}
+
+/*  Header  */
+/* Header background, padding, and bottom border */
+header {
+  background-color: rgba(34, 34, 34, 0.85);
+  padding: 20px 0;
+  text-align: center;
+  border-bottom: 2px solid orangered;
+}
+
+/* Logo styling */
+.logo {
+  font-size: 1.8rem;
+  color: orangered;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Navigation layout */
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+/* Navigation links */
+nav a {
+  color: #39ff14;
+  text-decoration: none;
+  padding: 6px 12px;
+  border: 1px solid orangered;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 0 2px black;
+}
+
+/* Nav link hover effect */
+nav a:hover {
+  background-color: orangered;
+  color: black;
+  box-shadow: none;
+}
+
+/*  Hero Section  */
+/* Hero container styling */
+.hero {
+  padding: 20px;
+  text-align: center;
+  background: rgba(34, 34, 34, 0.85);
+}
+
+/* Hero heading and paragraph styling */
+.hero h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #39ff14;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: #ccc;
+  max-width: 165ch;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+/*  Standard Buttons (inside panels)  */
+/* Default styling for all in-panel buttons */
+.btn {
+  display: block;
+  width: 100%;
+  max-width: 165px;
+  background-color: rgba(255, 69, 0, 0.7); /* semi-transparent orangered */
+  color: white;
+  padding: 7px 10px;
+  border: 1px solid grey;
+  border-radius: 25px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  text-align: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  box-shadow: 0 0 2px rgba(0,0,0,0.8), inset 0 0 1px rgba(0,0,0,0.6);
+}
+
+/* Hover effect for standard buttons */
+.btn:hover {
+  background-color: rgba(255, 51, 0, 0.9); /* darker semi-transparent */
+  color: black;
+}
+
+/* Overlay Buttons  */
+/* Independent overlay buttons on top of videos */
+.video-btn-link > .overlay-btn {
+  all: unset;                     /* remove inherited styles */
+  display: inline-block;
+  border: none;     
+  border-radius: 25px;            
+  background-color: transparent;   
+  color: blue;                     
+  font-size: 1.8rem;             
+  text-align: center;
+  padding: 7px 10px;
+  position: absolute;             /* positioned relative to parent */
+  top: 84%;                       /* vertical placement */
+  left: 50%;                      /* horizontal placement */
+  transform: translate(-50%, -50%); /* center button over point */
+  z-index: 2;
+  cursor: pointer;
+  box-shadow: none;
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Hover effect for overlay buttons */
+.video-btn-link > .overlay-btn:hover {
+  color: orangered;
+  background-color: transparent;
+  border-color: orangered;
+}
+
+/*  Info Panels  */
+/* Layout for panels section */
+.info-panels {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 40px 20px;
+  margin-top: 170px; /* added spacing from hero */
+  width: 100%;
+}
+
+
+
+/* Job buttons container styling */
+.job-buttons {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.job-buttons .buttons-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+/* Individual panels */
+.panel {
+  width: 50rem;
+  max-width: 900px;
+  height: 50rem;
+  background-color: rgba(34, 34, 34, 0.85);
+  border: 1px solid orangered;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  box-shadow: 0 0 10px #000;
+}
+
+/* Panel positioning for layout 
+.panel:nth-child(odd) { margin-left: 0; margin-right: auto; }
+.panel:nth-child(even) { margin-left: auto; margin-right: 0; }*/
+
+/* Panel text container */
+.panel-text {
+  position: relative;
+  padding: 25px;
+  text-align: center;
+  z-index: 1;
+}
+
+/* Panel headings and paragraphs */
+.panel-text h2 { color: #39ff14; margin-bottom: 10px; }
+.panel-text p { color: #ccc; margin-bottom: 15px; font-size: 2rem; }
+
+
+
+/* Images and videos inside panels */
+.panel-text img,
+.panel-text video {
+  display: block;
+  margin: 22px auto 0;
+  max-width: 90%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 0 10px orangered;
+  width: 275px;
+}
+
+/* Panel video sizing */
+.panel-video {
+  display: block;
+  width: 275px;
+  height: 75px;
+}
+
+
+footer {
+  background-color: rgba(34, 34, 34, 0.85);
+  color: #777;
+  text-align: center;
+  padding: 15px 0;
+  border-top: 1px solid #444;
+  margin-top: auto;
+}
+
+/* Clock Styling  */
+nav { position: relative; }
+
+#top-clock {
+  position: absolute;
+  top: 50%;
+  right: 30px;
+  transform: translateY(-50%);
+  font-family: 'Rock Salt', cursive;
+  font-size: 1.5rem;
+  color: #39ff14;
+  text-shadow: 0 0 8px #39ff14;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+/* Responsive Styles*/
+
+@media (max-width: 1024px) {
+  .info-panels { gap: 120px; padding: 20px; }
+  .panel-text h2 { font-size: 1.4rem; }
+  .panel-text p { font-size: 1.1rem; line-height: 1.5; }
+  .hero h1 { font-size: 1.8rem; }
+  .hero p { font-size: 1.1rem; }
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: row !important;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .info-panels { gap: 70px; padding: 15px; }
+  .panel { width: 95%; height: auto; margin: 0 auto; }
+  .panel:nth-child(odd), .panel:nth-child(even) { margin-left: auto; margin-right: auto; }
+
+  .panel-text h2 { font-size: 1.3rem; }
+  .panel-text p { font-size: 1rem; line-height: 1.4; }
+
+  .hero h1 { font-size: 1.5rem; }
+  .hero p { font-size: 1rem; line-height: 1.4; }
+  .hero { padding: 15px; background-size: cover; background-position: center top; }
+
+  /* Shrink nav buttons on tablets */
+  nav a { padding: 6px 8px; font-size: 0.95rem; }
+
+  /* Move clock up to avoid buttons */
+  #top-clock { top: 40%; }
+}
+
+@media (max-width: 480px) {
+  nav ul { flex-direction: row !important; flex-wrap: wrap; gap: 8px; }
+
+  .info-panels { gap: 30px; padding: 10px; }
+  .panel { width: 95%; height: auto; margin: 0 auto; }
+
+  .panel-text h2 { font-size: 1.1rem; }
+  .panel-text p { font-size: 0.9rem; line-height: 1.3; }
+
+  .hero h1 { font-size: 1.3rem; }
+  .hero p { font-size: 0.9rem; line-height: 1.3; }
+
+  .panel-text img,
+  .panel-text video { max-width: 100%; height: auto; }
+
+  body.main { background-image: url('/images/AbstractReentry-768x426.webp'); }
+  body.jobs { background-image: url('/images/AbstractJobs.webp'); }
+  body.housing { background-image: url('/images/AbstractHousing.webp'); }
+  body.resources { background-image: url('/images/AbstractResources.webp'); }
+
+  /* Shrink nav buttons on mobile */
+  nav a { padding: 5px 6px; font-size: 0.9rem; }
+
+  /* Shift clock up and adjust right spacing */
+  #top-clock { top: 35%; right: 8px; font-size: 1rem; }
+}

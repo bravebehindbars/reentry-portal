@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Reentry Login</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; overflow-x: hidden; }
+    body {
+      display: flex; flex-direction: column; min-height: 100vh;
+      font-family: Arial, sans-serif; color: #f2f2f2; line-height: 1.6;
+      border: 1px solid orangered; border-radius: 5px;
+      background-size: cover; background-position: center;
+      background-repeat: no-repeat; background-attachment: fixed;
+    }
+    body.main { background-image: url('reentry/images/AbstractReentry.webp'); }
+    main { flex: 1; display: flex; justify-content: center; align-items: center; padding: 20px; }
+    .panel {
+      background-color: rgba(34, 34, 34, 0.85); padding: 40px; max-width: 400px; width: 100%;
+      border: 1px solid orangered; border-radius: 12px; box-shadow: 0 0 10px #000;
+    }
+    .panel h2 { color: #39ff14; text-align: center; margin-bottom: 20px; }
+    .panel label { display: block; margin-bottom: 5px; color: #ccc; }
+    .panel input { width: 100%; padding: 10px; margin-bottom: 20px; border: 1px solid #777; border-radius: 6px; }
+    .create-btn {
+      display: inline-block; width: 47%; padding: 12px; margin-top: 10px;
+      font-size: 1.5rem; text-align: center; color: #fff; background-color: transparent;
+      border: 1px solid orangered; border-radius: 25px; cursor: pointer; transition: 0.3s;
+      text-decoration: none;
+    }
+    .create-btn:hover { background-color: orangered; color: #fff; }
+  </style>
+</head>
+<body class="main">
+
+<main>
+  <div class="panel">
+    <h2>Reentry Login</h2>
+    <form id="loginForm">
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" required>
+
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required>
+
+      <div class="btn-row">
+        <button type="submit" class="create-btn">Sign In</button>
+        <button type="button" id="createAccountBtn" class="create-btn">Create Account</button>
+      </div>
+    </form>
+  </div>
+</main>
+
+<script>
+  // CLEAR previous login immediately
+  localStorage.removeItem("loggedIn");
+  localStorage.removeItem("currentUser");
+
+  // Initialize demo users once
+  if (!localStorage.getItem("users")) {
+    localStorage.setItem("users", JSON.stringify([
+      { username: "demouser", password: "Password123456" },
+      { username: "student1", password: "pass1" },
+      { username: "Sumfoo", password: "Password" }
+    ]));
+  }
+
+  // Login logic
+  document.getElementById('loginForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    const matchedUser = users.find(u => u.username === username && u.password === password);
+
+    if (matchedUser) {
+      localStorage.setItem("loggedIn", "true");
+      localStorage.setItem("currentUser", username);
+      window.location.href = "reentry/index.html";
+    } else {
+      alert("Invalid username or password.");
+    }
+  });
+
+  // Create Account logic
+  document.getElementById('createAccountBtn').addEventListener('click', function() {
+    const username = prompt("Enter new username:");
+    if (!username) return alert("Username is required.");
+    const password = prompt("Enter password:");
+    if (!password) return alert("Password is required.");
+
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    if (users.find(u => u.username === username)) return alert("Username already exists!");
+
+    users.push({ username, password });
+    localStorage.setItem("users", JSON.stringify(users));
+    alert("Account created successfully! You can now log in.");
+  });
+</script>
+
+</body>
+</html>

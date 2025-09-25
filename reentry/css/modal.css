@@ -1,0 +1,59 @@
+/* Modal Styling */
+
+/* Modal backdrop */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.75);
+  display: none; /* hidden */
+  justify-content: center;
+  align-items: flex-start; /* align modal to top */
+  padding-top: 10px; /* small gap for close button */
+  z-index: 1000;
+}
+
+/* Show modal when active */
+.modal.active {
+  display: flex;
+}
+
+/* Modal content box */
+.modal-content {
+  background-color: #222;
+  border: 2px solid orangered;
+  border-radius: 12px;
+  width: 90vw;
+  max-width: 900px;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 15px #ff4500;
+  position: relative;
+  overflow: hidden; /* ensure rounded corners clip children */
+}
+
+/* Close button */
+.modal-close {
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  color: orangered;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  z-index: 10;
+}
+
+/* iframe styling */
+#modal-iframe {
+  flex-grow: 1;
+  border: none;
+  border-radius: 0 0 12px 12px;
+}
+
+

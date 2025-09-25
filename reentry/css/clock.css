@@ -1,0 +1,36 @@
+/* Clock styling */
+
+nav {
+  position: relative; /* nav becomes reference for clock */
+}
+
+#top-clock {
+  position: absolute;       /* positioned relative to nav */
+  top: 70%;                 /* push clock lower to sit below buttons */
+  right: 30px;              /* default distance from right edge */
+  transform: translateY(-50%);
+  font-family: 'Rock Salt', cursive;
+  font-size: 1.5rem;
+  color: #39ff14;
+  text-shadow: 0 0 8px #39ff14;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+/* Adjust for tablets */
+@media (max-width: 768px) {
+  #top-clock {
+    top: 65%;               /* shift slightly for tablet screens */
+    right: 15px;            /* more room for nav buttons */
+    font-size: 1.3rem;
+  }
+}
+
+/* Adjust for mobile phones */
+@media (max-width: 480px) {
+  #top-clock {
+    top: 60%;               /* shift for small screens */
+    right: 10px;            /* prevent overlap on tiny screens */
+    font-size: 1.1rem;
+  }
+}

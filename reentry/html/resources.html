@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reentry Portal</title>
+  <link rel="stylesheet" href="../css/style2.css" />
+  <link rel="stylesheet" href="../css/clock.css" />
+</head>
+
+ <body class="resources">
+  <!-- HEADER -->
+  <header style="flex:none; position:relative;">
+    <div class="logo" aria-label="Reentry Portal logo">🔑 Explore Resources </div>
+    <nav style="position:relative;">
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../html/jobs.html">Jobs</a></li>
+        <li><a href="../html/housing.html">Housing</a></li>
+        <li><a href="../html/resources.html">Resources</a></li>
+        <li><a href="https://forms.gle/vZyZFbJcNK9uu6Hs7" target="_blank" rel="noopener noreferrer">Feedback</a></li>
+        <a href="#" id="signOutLink" style="position:absolute; right:29px; top:0; transform:translateY(-125%);">Sign Out</a>
+      </ul>
+      <div id="top-clock"></div>
+    </nav>
+  </header>
+   <section class="job-buttons" aria-label="Search Resources">
+  <h2>Resource Links</h2>
+  <div class="buttons-container"></div>
+</section>
+
+
+   <!-- Footer -->
+ <footer role="contentinfo">
+  <p>&copy; 2025 Reentry Portal. All rights reserved.</p>
+ </footer>
+ 
+ <script>
+  document.getElementById('signOutLink').addEventListener('click', function(e) {
+      e.preventDefault();                        // stop default link behavior
+      localStorage.removeItem('loggedIn');       // clear login flag
+      localStorage.removeItem('currentUser');    // clear user info
+
+      
+      window.location.replace("http://127.0.0.1:8080/");
+  });
+</script>
+
+  <!-- CLOCK SCRIPT -->
+  <script src="../js/resources.js"></script>
+  <script src="../js/clock.js"></script>
+
+ </body>
+</html>

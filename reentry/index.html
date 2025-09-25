@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Reentry Portal: Resources and support for individuals seeking a fresh start after incarceration." />
+  <meta name="author" content="Reentry Portal Team" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Reentry Portal" />
+  <meta property="og:description" content="Your path forward starts here—find jobs, housing, and resources after incarceration." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yourdomain.com/Reentry.html" />
+  <meta property="og:image" content="https://yourdomain.com/images/portal-logo.png" />
+  <title>Reentry Portal</title>
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style2.css"/>
+  <link rel="stylesheet" href="css/clock.css" />
+  <link rel="stylesheet" href="css/modal.css" />
+</head>
+
+<body class="main">
+<!-- HEADER -->
+<header role="banner">
+  <div class="logo" aria-label="Reentry Portal logo">🔑 Reentry Portal</div>
+  <nav role="navigation" aria-label="Primary navigation">
+    <ul>
+      <li><a href="reentry.html">Home</a></li>
+      <li><a href="html/jobs.html">Jobs</a></li>
+      <li><a href="html/housing.html">Housing</a></li>
+      <li><a href="html/resources.html">Resources</a></li>
+      <li><a href="https://forms.gle/vZyZFbJcNK9uu6Hs7" target="_blank" rel="noopener noreferrer">Feedback</a></li>
+      <!-- Sign Out link positioned to the right of the nav -->
+      <a href="#" id="signOutLink" style="position:absolute; right:29px; top:0; transform:translateY(-125%);">Sign Out</a>
+    </ul>
+    <!-- Clock display in header -->
+    <div id="top-clock">00:00:00</div>
+  </nav>
+</header>
+
+<!-- MAIN CONTENT -->
+<main role="main">
+
+  <!-- HERO SECTION -->
+  <section class="hero" aria-labelledby="hero-title">
+    <h1 id="hero-title">Your Path Forward Starts Here</h1>
+    <p>Getting out is one thing—getting on with life is another. Whether you're looking for work, trying to find a place to stay, or just figuring out your next step, it helps to have real options in one place. This site keeps it simple: jobs that give second chances, housing you can actually get into, and resources that don’t waste your time. It's not everything, but it's a start—and sometimes that’s enough to move forward.</p>
+    <p>Resources for a Fresh Start After Incarceration</p>
+  </section>
+
+  <!-- INFO PANELS SECTION -->
+  <section class="info-panels">
+
+    <!-- JOBS PANEL -->
+    <div class="panel">
+     <div class="panel-text">
+        <h2>Start with Purpose</h2>
+        <p>You’re not starting from scratch—you’re building from experience. Finding the right job after incarceration isn’t just about money; it’s about stability, routine, and earning respect on your own terms. Everyone’s path forward looks different, but what matters is having the chance to take real steps. This is about work that gives you structure, opens doors, and reminds you that you still have something valuable to offer.</p>
+
+        <!-- Video link for Jobs -->
+      <div class="video-btn-link">
+       <video class="panel-video" autoplay muted loop playsinline>
+         <source src="mp4/all.mp4" type="video/mp4">
+         Your browser does not support the video tag.
+       </video>
+         <a href="#" id="open-jobs" class="overlay-btn">Explore Jobs</a>
+      </div>
+     </div>
+    </div>
+
+    <!-- HOUSING PANEL -->
+    <div class="panel">
+     <div class="panel-text">
+        <h2>Housing</h2>
+        <p>Everyone needs somewhere solid to land—a space that’s yours, where you can shut the door and breathe. After everything, finding stable housing isn’t just about shelter—it’s about having a base to rebuild from. A place to rest, think clearly, and make plans without looking over your shoulder. It’s not always easy, but it’s possible. And it’s one of the first real steps toward putting your life on your terms again.</p>
+
+        <!-- Video link for Housing -->
+      <div class="video-btn-link">
+       <video class="panel-video" autoplay muted loop playsinline>
+         <source src="mp4/all.mp4" type="video/mp4">
+         Your browser does not support the video tag.
+       </video>
+         <a href="#" id="open-housing" class="overlay-btn">Housing</a>
+      </div>
+     </div>
+    </div>
+
+    <!-- RESOURCES PANEL -->
+    <div class="panel">
+      <div class="panel-text">
+        <h2>Resources</h2>
+        <p>Finding your footing means more than just a place to sleep. You might need help with paperwork, someone to talk to, training that leads to real work, or just a clear next step. This section connects you to the basics that can help you move forward—one step at a time, at your own pace.<br><br><br><br></p>
+
+        <!-- Video link for Resources -->
+       <div class="video-btn-link">
+        <video class="panel-video" autoplay muted loop playsinline>
+         <source src="mp4/all.mp4" type="video/mp4">
+         Your browser does not support the video tag.
+        </video>
+         <a href="#" id="open-resources" class="overlay-btn">Resources</a>
+       </div>
+      </div>
+     </div>
+
+  </section>
+</main>
+
+<!-- MODAL -->
+<div id="modal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="modal-title" aria-modal="true">
+  <div class="modal-content">
+    <button id="modal-close" class="modal-close" aria-label="Close Panel">&times;</button>
+    <h2 id="modal-title"></h2>
+    <iframe id="modal-iframe" src="" frameborder="0" title="Modal Content"></iframe>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer role="contentinfo">
+  <p>&copy; 2025 Reentry Portal. All rights reserved.</p>
+</footer>
+<!-- SCRIPTS -->
+<script>
+  document.getElementById('signOutLink').addEventListener('click', function(e) {
+      e.preventDefault();
+      localStorage.removeItem('loggedIn');
+      localStorage.removeItem('currentUser');
+      window.location.replace("http://127.0.0.1:8080/");
+  });
+</script>
+<script src="js/modal.js"></script>
+<script src="js/clock.js"></script>
+
+</body>
+</html>
