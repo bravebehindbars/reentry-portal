@@ -1,5 +1,5 @@
 // JavaScript for Modal Frames
-// Handles opening, closing, and dynamic content (title, iframe src)
+
 
 // Get modal elements
 const modal = document.getElementById('modal'); // modal container
@@ -9,12 +9,12 @@ const modalTitle = document.getElementById('modal-title'); // modal title
 
 // Open modal with given title and iframe URL
 function openModal(title, url) {
-  modalTitle.textContent = title; // set modal title
-  modalIframe.title = title;       // set iframe title
-  modalIframe.src = url;           // load content in iframe
+  modalTitle.textContent = title; 
+  modalIframe.title = title;       
+  modalIframe.src = url;           
 
-  modal.classList.add('active');   // show modal
-  modal.setAttribute('aria-hidden', 'false'); // accessibility
+  modal.classList.add('active');   
+  modal.setAttribute('aria-hidden', 'false'); 
 
   // When iframe loads, adjust content if modal=true
   modalIframe.onload = () => {
@@ -40,29 +40,29 @@ function openModal(title, url) {
 
 // Close modal and unload iframe
 function closeModal() {
-  modal.classList.remove('active'); // hide modal
-  modal.setAttribute('aria-hidden', 'true'); // accessibility
-  modalIframe.src = ''; // unload iframe
+  modal.classList.remove('active');
+  modal.setAttribute('aria-hidden', 'true'); 
+  modalIframe.src = ''; 
 }
 
 // Panel button triggers
 document.getElementById('open-jobs').addEventListener('click', (e) => {
-  e.preventDefault(); // prevent link navigation
-  openModal('', 'HTML/jobs.html?modal=true'); // open jobs modal
+  e.preventDefault(); 
+  openModal('', './html/jobs.html?modal=true'); // open jobs modal
 });
 
 document.getElementById('open-housing').addEventListener('click', (e) => {
   e.preventDefault();
-  openModal('', 'HTML/housing.html?modal=true'); // open housing modal
+  openModal('', './html/housing.html?modal=true'); // open housing modal
 });
 
 document.getElementById('open-resources').addEventListener('click', (e) => {
   e.preventDefault();
-  openModal('', 'HTML/resources.html?modal=true'); // open resources modal
+  openModal('', './html/resources.html?modal=true'); // open resources modal
 });
 
 // Close modal events
-modalCloseBtn.addEventListener('click', closeModal); // close button click
-modal.addEventListener('click', (e) => {            // click outside content
+modalCloseBtn.addEventListener('click', closeModal); 
+modal.addEventListener('click', (e) => {            
   if (e.target === modal) closeModal();
 });
